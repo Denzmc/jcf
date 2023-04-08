@@ -18,6 +18,13 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String [] arr = new String[10];
+        for (int i = 0; i < arr.length-2; i++) {
+            arr[i] = br.readLine();
+        }
+        for (int i = arr.length-1; i > -1 ; i--) {
+            System.out.println(arr[i]);
+        }
     }
 }

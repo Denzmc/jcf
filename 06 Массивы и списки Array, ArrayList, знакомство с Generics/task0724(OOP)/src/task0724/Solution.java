@@ -24,11 +24,47 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        // напишите тут ваш код
+        Human firstOldMan = new Human("Harry", true, 86);
+        Human secondOldMan = new Human("Tom", true, 83);
+        Human firstGranny = new Human("Sarah", false, 79);
+        Human secondGranny = new Human("Marry", false, 72);
+        Human dad = new Human("Nick", true, 45, firstOldMan, firstGranny);
+        Human mom = new Human("Poly", true, 42, secondOldMan, secondGranny);
+        Human firstChild = new Human("James", true, 17, dad, mom);
+        Human secondChild = new Human("Robert", true, 12, dad, mom);
+        Human thirdChild = new Human("Noah", true, 6, dad, mom);
+        System.out.println(firstOldMan);
+        System.out.println(secondOldMan);
+        System.out.println(firstGranny);
+        System.out.println(secondGranny);
+        System.out.println(dad);
+        System.out.println(mom);
+        System.out.println(firstChild);
+        System.out.println(secondChild);
+        System.out.println(thirdChild);
+
     }
 
     public static class Human {
-        // напишите тут ваш код
+        String name;
+        boolean sex;
+        int age;
+        Human father;
+        Human mother;
+
+        public Human(String name, boolean sex, int age, Human father, Human mother) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.father = father;
+            this.mother = mother;
+        }
+
+        public Human(String name, boolean sex, int age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+        }
 
         public String toString() {
             String text = "";

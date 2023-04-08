@@ -47,6 +47,10 @@ public class Solution {
             String string = strings.get(i);
             resultStrings.add(string.toUpperCase());
         }
+        for (String s: strings){
+            if (s.length() % 2 == 0) System.out.println(s +" "+s);
+            else System.out.println(s +" "+s+" "+s);
+        }
 
         for (int i = 0; i < resultStrings.size(); i++) {
             System.out.println(resultStrings.get(i));

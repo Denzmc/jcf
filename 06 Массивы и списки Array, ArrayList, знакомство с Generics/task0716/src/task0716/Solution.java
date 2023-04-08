@@ -32,10 +32,11 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        ArrayList<String> strings = new ArrayList<String>();
+        ArrayList<String> strings = new ArrayList<>();
         strings.add("роза");
         strings.add("лоза");
         strings.add("лира");
+        strings.add("гость");
         strings = fix(strings);
 
         for (String string : strings) {
@@ -44,7 +45,15 @@ public class Solution {
     }
 
     public static ArrayList<String> fix(ArrayList<String> strings) {
-        //напишите тут ваш код
-        return null;
+        strings.removeIf(s -> s.contains("р")&&!s.contains("л"));
+        int size = strings.size();
+        for (int i = 0; i < size; i++) {
+            String s = strings.get(i);
+            if (s.contains("л")&&!s.contains("р")) {
+                strings.add(s);
+            }
+
+        }
+        return strings;
     }
 }

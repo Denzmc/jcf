@@ -3,6 +3,9 @@ package task0713;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /* 
 Играем в Золушку
@@ -25,10 +28,28 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        List<Integer> list = new ArrayList<>();
+        List<Integer> listThreeDiv = new ArrayList<>();
+        List<Integer> listTwoDiv = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 20; i++) {
+            list.add(sc.nextInt());
+        }
+        listThreeDiv = list.stream().filter(n -> n%3 == 0).collect(Collectors.toList());
+        listTwoDiv = list.stream().filter(n -> n%2 == 0).collect(Collectors.toList());
+        list2 = list.stream().filter(n -> n%3 != 0 && n%2 != 0).collect(Collectors.toList());
+        System.out.println("Two");
+        printList(listTwoDiv);
+        System.out.println("Tree");
+        printList(listThreeDiv);
+        System.out.println("Ost");
+        printList(list2);
+
     }
 
-    public static void printList(ArrayList<Integer> list) {
-        //напишите тут ваш код
+    public static void printList(List<Integer> list) {
+        list.forEach(System.out::println);
     }
 }

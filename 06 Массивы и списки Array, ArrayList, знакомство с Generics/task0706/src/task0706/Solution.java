@@ -24,6 +24,23 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        int [] arrInt = new int[15];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 0; i < arrInt.length; i++) {
+            arrInt[i] = Integer.parseInt(br.readLine());
+        }
+        int even = 0;
+        for (int i = 0; i < arrInt.length; i+=2) {
+            even += arrInt[i];
+        }
+        int odd = 0;
+        for (int i = 1; i < arrInt.length; i+=2) {
+            odd += arrInt[i];
+        }
+        if (odd > even){
+            System.out.println("В домах с нечетными номерами проживает больше жителей.");
+        }else {
+            System.out.println("В домах с четными номерами проживает больше жителей.");
+        }
     }
 }

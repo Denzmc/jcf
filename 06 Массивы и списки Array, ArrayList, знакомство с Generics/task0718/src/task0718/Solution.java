@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /* 
 1. Введи с клавиатуры 10 слов в список строк.
@@ -20,7 +24,26 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        List<String> list = new ArrayList<>();
+
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 5; i++) {
+            list.add(sc.nextLine());
+        }
+        List<Integer> sortedIntList =  list.stream().map(String::length).sorted().collect(Collectors.toList());
+        List<Integer> ourIntList = list.stream().map(String::length).collect(Collectors.toList());
+        System.out.println(ourIntList);
+        if (!ourIntList.equals(sortedIntList)){
+
+            for (int i = 0; i < ourIntList.size()-1; i++) {
+                if (ourIntList.get(i) > ourIntList.get(i + 1)) {
+                    System.out.println(i);
+                    break;
+                }
+            }
+
+        }
+
     }
 }
 

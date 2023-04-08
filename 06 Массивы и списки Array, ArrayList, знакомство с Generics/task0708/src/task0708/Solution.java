@@ -1,8 +1,11 @@
 package task0708;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
 
 /* 
 1. Создай список строк.
@@ -21,6 +24,14 @@ public class Solution {
     private static ArrayList<String> strings;
 
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        Scanner sc = new Scanner(System.in);
+        strings = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            strings.add( sc.nextLine());
+        }
+
+        int max = strings.stream().map(String::length).max(Integer::compareTo).get();
+
+        strings.stream().filter(s -> s.length()==max).forEach(System.out::println);
     }
 }

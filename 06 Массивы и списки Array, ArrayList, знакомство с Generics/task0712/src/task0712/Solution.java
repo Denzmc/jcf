@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 /* 
 Самые-самые
@@ -23,6 +26,22 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        List<String > list = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            list.add( sc.nextLine());
+        }
+        int max = list.stream().map(String::length).max(Integer::compareTo).get();
+        int min = list.stream().map(String::length).min(Integer::compareTo).get();
+        for (String s: list) {
+            if (s.length() == max) {
+                System.out.println("The longest first string "+s);
+                break;
+            }
+            if (s.length() == min) {
+                System.out.println("The shortest first string "+s);
+                break;
+            }
+        }
     }
 }

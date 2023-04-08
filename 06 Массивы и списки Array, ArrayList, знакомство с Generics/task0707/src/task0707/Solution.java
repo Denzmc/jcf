@@ -1,6 +1,7 @@
 package task0707;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /* 
 Что за список такой?
@@ -19,6 +20,13 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        List<String > list = new ArrayList<>();
+        list.add("qwert");
+        list.add("dffgd");
+        list.add("zzxczx");
+        list.add("ghjkh");
+        list.add("yuiyo");
+        System.out.println(list.size());
+        list.stream().forEach(System.out::println);
     }
 }

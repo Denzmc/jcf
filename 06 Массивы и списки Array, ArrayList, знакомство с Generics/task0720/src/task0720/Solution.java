@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 /* 
 Перестановочка подоспела
@@ -23,8 +24,22 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
+        List<String> list = new ArrayList<>();
+        String s;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int a = 0;
+        int n = Integer.parseInt(reader.readLine());
+        int m = Integer.parseInt(reader.readLine());
 
-        //напишите тут ваш код
+        for (int i = 0; i < n; i++) {
+            list.add(reader.readLine());
+        }
+        while (a != m){
+            s = list.remove(0);
+            list.add(s);
+            a++;
+        }
+        list.forEach(System.out::println);
+
     }
 }
