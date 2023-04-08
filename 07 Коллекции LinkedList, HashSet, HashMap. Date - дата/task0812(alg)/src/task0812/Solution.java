@@ -27,7 +27,12 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(Integer.parseInt(br.readLine()));
+        }
+
 
     }
 }

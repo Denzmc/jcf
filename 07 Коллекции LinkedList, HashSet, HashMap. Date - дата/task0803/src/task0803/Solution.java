@@ -29,8 +29,11 @@ public class Solution {
 
 
     public static Map<String, Cat> addCatsToMap(String[] cats) {
-        //напишите тут ваш код
-
+        Map<String ,Cat> map = new HashMap<>();
+        for (String catName: cats) {
+            map.put(catName, new Cat(catName));
+        }
+        return map;
     }
 
 

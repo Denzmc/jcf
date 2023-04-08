@@ -24,16 +24,16 @@ public class Solution {
     }
 
     public static long getInsertTimeInMs(List list) {
-        // напишите тут ваш код
+        long a = System.currentTimeMillis();
 
         insert10000(list);
 
-        // напишите тут ваш код
+        return System.currentTimeMillis() - a;
 
     }
 
     public static void insert10000(List list) {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100_000; i++) {
             list.add(0, new Object());
         }
     }
