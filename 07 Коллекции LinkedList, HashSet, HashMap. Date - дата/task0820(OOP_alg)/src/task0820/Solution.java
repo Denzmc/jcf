@@ -1,5 +1,7 @@
 package task0820;
 
+import java.awt.*;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,36 +32,51 @@ public class Solution {
 
         Set<Object> pets = join(cats, dogs);
         printPets(pets);
-
+        System.out.println();
         removeCats(pets, cats);
         printPets(pets);
     }
 
     public static Set<Cat> createCats() {
-        Set<Cat> result = new HashSet<Cat>();
+        Set<Cat> result = new HashSet<>();
 
-        //напишите тут ваш код
+        result.add(new Cat());
+        result.add(new Cat());
+        result.add(new Cat());
+        result.add(new Cat());
 
         return result;
     }
 
     public static Set<Dog> createDogs() {
-        //напишите тут ваш код
-        return null;
+
+        return new HashSet<>(Arrays.asList(new Dog(), new Dog(), new Dog()));
     }
 
     public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs) {
-        //напишите тут ваш код
-        return null;
+        Set<Object> set = new HashSet<>(cats);
+        set.addAll(dogs);
+        return set;
     }
 
     public static void removeCats(Set<Object> pets, Set<Cat> cats) {
-        //напишите тут ваш код
+        pets.removeAll(cats);
     }
 
     public static void printPets(Set<Object> pets) {
-        //напишите тут ваш код
+        pets.forEach(System.out::println);
     }
 
-    //напишите тут ваш код
+    public static class Cat{
+        @Override
+        public String toString() {
+            return "Cat{"+this.hashCode()+"}";
+        }
+    }
+    public static class Dog{
+        @Override
+        public String toString() {
+            return "Dog{"+this.hashCode()+"}";
+        }
+    }
 }

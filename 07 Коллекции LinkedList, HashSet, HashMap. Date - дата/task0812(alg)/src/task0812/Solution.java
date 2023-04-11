@@ -32,7 +32,17 @@ public class Solution {
         for (int i = 0; i < 10; i++) {
             list.add(Integer.parseInt(br.readLine()));
         }
-
+        int count = 1;
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < list.size()-1; i++) {
+            if (list.get(i).equals(list.get(i+1))){
+                ++count;
+                list2.add(count);
+            } else {
+                count = 1;
+            }
+        }
+        System.out.println(list2.stream().max(Integer::compareTo).get());
 
     }
 }

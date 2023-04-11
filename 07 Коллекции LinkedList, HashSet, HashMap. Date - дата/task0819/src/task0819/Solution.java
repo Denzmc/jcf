@@ -1,5 +1,6 @@
 package task0819;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,19 +26,24 @@ public class Solution {
     public static void main(String[] args) {
         Set<Cat> cats = createCats();
 
-        //напишите тут ваш код. step 3 - пункт 3
+        cats.remove(cats.toArray()[1]);
 
         printCats(cats);
     }
 
     public static Set<Cat> createCats() {
-        //напишите тут ваш код. step 2 - пункт 2
-        return null;
+
+        return new HashSet<>(Arrays.asList(new Cat(), new Cat(), new Cat()));
     }
 
     public static void printCats(Set<Cat> cats) {
-        // step 4 - пункт 4
+        cats.forEach(System.out::println);
     }
 
-    // step 1 - пункт 1
+    public static class Cat{
+        @Override
+        public String toString() {
+            return "Cat hashcode "+this.hashCode();
+        }
+    }
 }

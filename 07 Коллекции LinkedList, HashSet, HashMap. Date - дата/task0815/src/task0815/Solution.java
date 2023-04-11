@@ -18,21 +18,36 @@ Requirements:
 
 public class Solution {
     public static Map<String, String> createMap() {
-        //напишите тут ваш код
-
+        Map<String, String> map = new HashMap<>();
+        map.put("Иван","Иванов");
+        map.put("Роберт","Юмадилов");
+        map.put("Денис","Зарипов");
+        map.put("Сергей","Теменцев");
+        map.put("Олег","Тюменцев");
+        map.put("Иван","Козлов");
+        map.put("Олег","Иванов");
+        map.put("Иван","Петров");
+        map.put("Петр","Иванов");
+        map.put("Ольга","Клейн");
+        return map;
     }
 
     public static int getCountTheSameFirstName(Map<String, String> map, String name) {
-        //напишите тут ваш код
+        return 0;
 
     }
 
     public static int getCountTheSameLastName(Map<String, String> map, String lastName) {
-        //напишите тут ваш код
-
+        int sum = 1;
+        for(String s: map.values()){
+            sum = s.equals(lastName) ? ++sum : sum;
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
-
+        Map<String , String> map = createMap();
+        System.out.println(map.size());
+        System.out.println(getCountTheSameLastName(map, "Иванов"));
     }
 }

@@ -1,5 +1,6 @@
 package task0827;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /* 
@@ -25,6 +26,27 @@ public class Solution {
     }
 
     public static boolean isDateOdd(String date) {
-        return true;
+        String[] dates = date.split(" ");
+
+        int month = switch (dates[0]) {
+            case "JANUARY" -> 1;
+            case "FEBRUARY" -> 2;
+            case "MARCH" -> 3;
+            case "APRIL" -> 4;
+            case "MAY" -> 5;
+            case "JUNE" -> 6;
+            case "JULY" -> 7;
+            case "AUGUST" -> 8;
+            case "SEPTEMBER" -> 9;
+            case "OCTOBER" -> 10;
+            case "NOVEMBER" -> 11;
+            case "DECEMBER" -> 12;
+            default -> 0;
+        };
+
+        int year = Integer.parseInt(dates[2]);
+        int day = Integer.parseInt(dates[1]);
+        LocalDate ld = LocalDate.of(year, month, day);
+        return ld.getDayOfYear()%2 == 1;
     }
 }

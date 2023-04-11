@@ -1,7 +1,7 @@
 package task0817;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /* 
 Нам повторы не нужны
@@ -18,13 +18,30 @@ Requirements:
 
 public class Solution {
     public static Map<String, String> createMap() {
-        //напишите тут ваш код
+        Map<String, String> map = new HashMap<>();
+        map.put("Иванов","Иван");
+        map.put("Юмадилов","Роберт");
+        map.put("Зарипов","Денис");
+        map.put("Теменцев","Сергей");
+        map.put("Олегин","Олег");
+        map.put("Козлов","Иван");
+        map.put("Олегов","Олег");
+        map.put("Иванчук","Петр");
+        map.put("Хаям","Петр");
+        map.put("Клейн","Иван");
+        return map;
 
     }
 
     public static void removeTheFirstNameDuplicates(Map<String, String> map) {
-        //напишите тут ваш код
 
+        Set<String> set = new HashSet<>();
+
+        Set<String> set2 =  map.values().stream().filter(e -> !set.add(e)).collect(Collectors.toSet());
+
+        for (String s : set2) {
+            removeItemFromMapByValue(map, s);
+        }
     }
 
     public static void removeItemFromMapByValue(Map<String, String> map, String value) {
@@ -37,6 +54,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
+        Map<String, String > map = createMap();
+        removeTheFirstNameDuplicates(map);
+        System.out.println(map);
     }
 }
